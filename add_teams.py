@@ -4,8 +4,6 @@ import sys
 
 from cmscontrib.AddTeam import add_team
 
-CONTEST_ID = int(sys.argv[1])
-
 # Create teams
 team = {
     "Class 7": "class7",

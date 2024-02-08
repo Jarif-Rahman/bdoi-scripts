@@ -3,9 +3,7 @@
 import csv
 import sys
 
-from cmscontrib.AddUser import add_user
 from cmscontrib.AddParticipation import add_participation
-from cmscontrib.AddTeam import add_team
 
 # Format: first_name, last_name, grade, email, username, password 
 csv_file = open("users.csv", "r") 
@@ -13,7 +11,7 @@ csv_reader = csv.reader(csv_file, delimiter=',')
 next(csv_reader)
 
 CONTEST_ID = int(sys.argv[1])
-emails = open(sys.argv[2], 'r').read().split('\n')
+emails = [x.strip() for x in open(sys.argv[2], 'r').read().split('\n')]
 
 # Create teams
 team = {
@@ -26,9 +24,6 @@ team = {
     "SSC 2024 Candidates": "ssc", 
     "Others": "others"
 }
-
-for name, code in team.items(): 
-    add_team(code, name)
 
 for row in csv_reader:
     first_name, last_name, grade, email, username, password = row
@@ -44,4 +39,6 @@ for row in csv_reader:
                         team_code = team[grade], \
                         hidden = False, \
                         unrestricted = False)
+
+
 
