@@ -20,8 +20,8 @@ team = {
     "Class 9": "class9",
     "Class 10": "class10",
     "Class 11": "class11", 
-    "Class 12/HSC 2024": "hsc", 
-    "SSC 2024 Candidates": "ssc", 
+    "Class 12/HSC 2025": "hsc", 
+    "SSC 2025 Candidates": "ssc", 
     "Others": "others"
 }
 
