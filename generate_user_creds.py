@@ -6,7 +6,7 @@ import string
 csv_file = open("users.csv", "w") 
 csv_writer = csv.writer(csv_file, delimiter=',')
 
-csv_writer.writerow(["first_name", "last_name", "grade", "email", "username", "password"])
+csv_writer.writerow(["first_name", "last_name", "grade", "email", "username", "password_day1", "password_day2"])
 
 random.seed(int(sys.argv[1]))
 
@@ -17,8 +17,9 @@ next(rawFileReader)
 count = 1
 
 for row in rawFileReader:
-    email, first_name, last_name, grade = row[:4]
-    username = f"u{count:03d}"
+    email, first_name, last_name, grade = row[3:7]
+    username = f"u{count:02d}"
     count += 1
-    password = ''.join(random.choices(string.ascii_lowercase + string.digits, k=8))
-    csv_writer.writerow([first_name, last_name, grade, email, username, password])
+    password_day1 = ''.join(random.choices(string.ascii_lowercase + string.digits, k=10))
+    password_day2 = ''.join(random.choices(string.ascii_lowercase + string.digits, k=10))
+    csv_writer.writerow([first_name, last_name, grade, email, username, password_day1, password_day2])
