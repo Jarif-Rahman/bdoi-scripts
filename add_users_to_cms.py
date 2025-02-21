@@ -5,7 +5,8 @@ import string
 import random
 import sys
 
-from cmscontrib.AddUser import add_user, add_participation
+from cmscontrib.AddUser import add_user
+from cmscontrib.AddParticipation import add_participation
 
 csv_file = open("users.csv", "r") 
 csv_reader = csv.reader(csv_file, delimiter=',')
