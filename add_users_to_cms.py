@@ -12,25 +12,13 @@ csv_file = open("users.csv", "r")
 csv_reader = csv.reader(csv_file, delimiter=',')
 next(csv_reader)
 
-# Create teams
-
-team = {
-    "Class 7": "class7",
-    "Class 8": "class8",
-    "Class 9": "class9",
-    "Class 10": "class10",
-    "Class 11": "class11", 
-    "Class 12/HSC 2025": "hsc", 
-    "SSC 2025 Candidates": "ssc", 
-    "Others": "others"
-}
-
 
 CONTEST1_ID = int(sys.argv[1])
 CONTEST2_ID = int(sys.argv[2])
+CONTEST3_ID = int(sys.argv[3])
 
 for row in csv_reader: 
-    first_name, last_name, grade, email, username, password_day1, password_day2 = row
+    first_name, last_name, email, username, password_day1, password_day2, password_day3 = row
     add_user(first_name = first_name, \
              last_name = last_name, \
              username = username, \
@@ -48,7 +36,6 @@ for row in csv_reader:
                         password = password_day1, \
                         method = "plaintext", 
                         is_hashed = False, \
-                        team_code = team[grade], \
                         hidden = False, \
                         unrestricted = False)
     add_participation(username = username, \
@@ -59,7 +46,16 @@ for row in csv_reader:
                         password = password_day2, \
                         method = "plaintext", 
                         is_hashed = False, \
-                        team_code = team[grade], \
+                        hidden = False, \
+                        unrestricted = False)
+    add_participation(username = username, \
+                        contest_id = CONTEST3_ID, \
+                        ip = None, \
+                        delay_time = 0, \
+                        extra_time = 0, \
+                        password = password_day3, \
+                        method = "plaintext", 
+                        is_hashed = False, \
                         hidden = False, \
                         unrestricted = False)
 
