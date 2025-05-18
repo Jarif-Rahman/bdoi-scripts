@@ -17,7 +17,7 @@ next(rawFileReader)
 count = 1
 
 for row in rawFileReader:
-    email, first_name, last_name = row[3:7]
+    email, first_name, last_name = row
     username = f"u{count:02d}"
     count += 1
     password_day1 = ''.join(random.choices(string.ascii_lowercase + string.digits, k=10))
