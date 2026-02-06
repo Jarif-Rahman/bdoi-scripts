@@ -18,11 +18,10 @@ team = {
     "Class 9": "class9",
     "Class 10": "class10",
     "Class 11": "class11", 
-    "Class 12/HSC 2024": "hsc", 
-    "SSC 2024 Candidates": "ssc", 
+    "Class 12/HSC 2026": "hsc", 
+    "SSC 2026 Candidates": "ssc", 
     "Others": "others"
 }
-
 for row in csv_reader: 
     first_name, last_name, grade, email, username, password = row
     add_user(first_name = first_name, \
