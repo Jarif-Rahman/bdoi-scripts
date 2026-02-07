@@ -26,7 +26,7 @@ if __name__ == '__main__':
             subtasks.append([int(line[4:]), []])
             for i in sub_dep[len(subtasks)-1]:
                 subtasks[-1][1].extend(subtasks[i-1][1])
-        elif len(line) != 0:
+        elif len(line) != 0 and not line.startswith("#"):
             subtasks[-1][1].append(cur_test)
             cur_test+=1
         
